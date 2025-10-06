@@ -116,7 +116,7 @@ public class NoOfSubArraysWithMaxAsK1 {
                 break;
             }
         }
-
+        
         int ngeIdx = -1; // next greater element index
         // from k-idx to right side : to get the next greater element
         for (int i = kIndex; i < n; i++) {
@@ -125,7 +125,9 @@ public class NoOfSubArraysWithMaxAsK1 {
                 break;
             }
         }
-
+        
+        //  ( count= R−L+1 ) ==> i - (pgeIdx + 1) + 1 = i - pgeIdx     
+        // (ngeIdx - 1) - i + 1 = ngeIdx - i
         int x = kIndex - pgeIdx; // number of elements on the left side of k (including k)
         int y = (ngeIdx == -1 ? n : ngeIdx) - kIndex; // number of elements on the right side of k (including k)
         return x * y;
@@ -137,12 +139,72 @@ public class NoOfSubArraysWithMaxAsK1 {
     
     
     */
+    public static int countSubarraysWithMaxKHarder(int[] arr, int k) {
+        int n = arr.length;
 
-    
+        int[] pge = new int[n];
+        int[] nge = new int[n];
+        int[] nextK = new int[n];
+        Arrays.fill(pge, -1);
+        Arrays.fill(nge, n);
+        Arrays.fill(nextK, n);
+
+        Stack<Integer> st = new Stack<>();
+        // PGE = Previous Greater Element
+        for (int i = 0; i < n; i++) {
+            while (!st.empty() && arr[st.peek()] <= arr[i]) {
+                st.pop();
+            }
+            if (!st.empty()) {
+                pge[i] = st.peek();
+            }
+            st.push(i);
+        }
+        st.clear();
+        // NGE = Next Greater Element
+        for (int i = n - 1; i >= 0; i--) {
+            while (!st.empty() && arr[st.peek()] <= arr[i]) {  // "<=" for handling duplicates of k
+                st.pop();
+            }
+            if (!st.empty()) {
+                nge[i] = st.peek();
+            }
+            st.push(i);
+        }
+        st.clear();
+
+        // Next K
+        for (int i = n - 1; i >= 0; i--) {
+            if (arr[i] == k) {
+                if (!st.empty()) {
+                    nextK[i] = st.peek();
+                }
+                st.push(i);
+            }
+
+        }
+
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            if (arr[i] != k)
+                continue;
+
+            int leftBound = pge[i];   // 
+            int rightBound = Math.min(nge[i] - 1 , nextK[i] == n ? n - 1 : nextK[i] - 1);
+            int x = i - leftBound; // the formula is : ( count= R−L+1 ) ==> i - (pgeIdx + 1) + 1 = i - pgeIdx
+            int y = rightBound - i + 1; // - rightBound is already the inclusive end of the valid subarray , so we do +1 to include it in the count ( r-l+1 )
+            count += x * y;
+        }
+        
+        return count;
+
+    }
+
 
 
     public static void main(String[] args) {
         int[] arr = { 8, 2, 5, 1, 10 };
+        int[] arr2 = { 8, 2, 5, 1, 5, 10, 5 };
         int k = 5;
 
         int count = 0;
@@ -159,9 +221,9 @@ public class NoOfSubArraysWithMaxAsK1 {
 
         System.out.println("-----------------------------------------------------------------");
 
-        // count = countSubarraysWithMaxKHarder(arr, k);
+        count = countSubarraysWithMaxKHarder(arr2, k);
 
-        // System.out.println("(Harder) The count of subarrays with max element as K is :-> " + count);
+        System.out.println("(Harder: when k can be repeated) The count of subarrays with max element as K is :-> " + count);
 
     }
 
