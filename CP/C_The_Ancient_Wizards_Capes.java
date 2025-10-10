@@ -4,6 +4,8 @@ package CP;
 // link: https://codeforces.com/contest/2155/problem/C
 // submission : https://codeforces.com/contest/2155/submission/342380926
 
+// doc: https://docs.google.com/document/d/1KZfeVh3M8Jrg0XXCjsejCYYc5_GJRKdgMqP-04LZzQs/edit?tab=t.0
+
 import java.util.Scanner;
 
 public class C_The_Ancient_Wizards_Capes {

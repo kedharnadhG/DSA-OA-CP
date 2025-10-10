@@ -1,1 +1,0 @@
-this Repo contains the practice problems of (DSA + CP + OA) from various platforms 
