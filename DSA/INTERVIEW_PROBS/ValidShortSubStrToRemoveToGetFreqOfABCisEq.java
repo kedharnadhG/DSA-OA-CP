@@ -12,9 +12,9 @@ public class ValidShortSubStrToRemoveToGetFreqOfABCisEq {
     public static void main(String[] args) throws Exception {
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine().trim());
+        int n = Integer.parseInt(br.readLine().trim());  // 5
 
-        String s = br.readLine().trim();
+        String s = br.readLine().trim();  // abccb
 
         long p1[] = new long[n];
         long p2[] = new long[n];
