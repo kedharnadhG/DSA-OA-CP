@@ -35,7 +35,7 @@ public class SmallestSubArrFrqOfABCisEq {
         }
 
         Map<String, Integer> map = new HashMap<>();
-        map.put("0#0", -1);
+        map.put("0#0", -1);        // if you used 1-based-indexing, then this can be  => map.put("0#0", 0);
         long len = Integer.MAX_VALUE;
 
         for (int i = 0; i < n; i++) {
