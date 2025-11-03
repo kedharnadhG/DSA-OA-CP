@@ -1,5 +1,7 @@
 package DSA.INTERVIEW_PROBS;
 
+// Doc: https://docs.google.com/document/d/1HJ9JFzTVNJM5U4eNeh7ofVxSyjfyETHH3Ryy-ak7T30/edit?tab=t.0
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -117,6 +119,8 @@ public class KthLargestMaxSubArrSum {
     }
 
     
+    // for the easy-version: TC: O(n * log(sum(arr)) )
+    // refer the "  KthSmallestSubarraySum.java  " file
     
 
     public static void main(String[] args) {
