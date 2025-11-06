@@ -1,4 +1,4 @@
-package DSA.INTERVIEW_PROBS;
+package INTERVIEW_PROBS;
 
 // Doc: https://docs.google.com/document/d/1HJ9JFzTVNJM5U4eNeh7ofVxSyjfyETHH3Ryy-ak7T30/edit?tab=t.0
 

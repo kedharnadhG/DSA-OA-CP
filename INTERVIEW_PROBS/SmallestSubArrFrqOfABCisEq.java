@@ -1,4 +1,4 @@
-package DSA.INTERVIEW_PROBS;
+package INTERVIEW_PROBS;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
