@@ -111,6 +111,12 @@ public class IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles {
                          long prevSumB = entry.getKey();
                          long sumB = entry.getValue();
 
+                         /*
+                            dp[i][k][diff - c[i-1]] (notes form) ⇔ newDiff = prevDiff + c[i-1] (code form)
+                            Both express the same transformation between two states:
+                            newDiff = oldDiff + c[i-1]  ⇔  oldDiff = newDiff - c[i-1]
+                          
+                         */
                          long newDiff = prevSumB + c[i - 1];
                          long newSumB = sumB + B[i - 1];
                          dp.get(i).get(k).merge(newDiff, newSumB, Math::max); // .merger( key, new-value, merger-fn ) :- if key exists, apply mergerFn(oldValue, newValue) to compute updated value;       else : insert (key, newValue) into the map.
