@@ -16,9 +16,9 @@
 
 # OA 
 
-| Session-Dt | Company-OA | Topic | Problem | S0ln-Link |  Doc-Link |
+| Session-Dt | Company-OA | Topic | Problem | Soln-Link |  Doc-Link |
 |-------------|-------- |--------|----------|------| -----------|
-| 02-11-25 | MS-OA | Multi-DP/ knapsackDP | IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles_Given_ArrA&B | - | [View Doc](https://docs.google.com/document/d/1rpZGrvIXXtzyGJmeFmTJ_BywmUDG4_VY27x9zCY48oU/edit?tab=t.0) |
+| 02-11-25 | MS-OA | Multi-DP/ knapsackDP | IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles_Given_ArrA&B | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/MS_OA/IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles.java) | [View Doc](https://docs.google.com/document/d/1rpZGrvIXXtzyGJmeFmTJ_BywmUDG4_VY27x9zCY48oU/edit?tab=t.0) |
 
 
 
