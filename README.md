@@ -1,10 +1,10 @@
 # DSA
 
 
-## LC-Upsolves
+## LC-Upsolved
 
 | Session-Dt | Contest | Topic | Problem | Soln-Link |  Doc-Link | Notes-Link |
-|-------------|--------|----------|------| -----------| -----------|
+|-------------|--------|----------|------| -----------| -----------| -----------|
 | 29-10-25 | LC-WC-473-Q2 | Greedy + Hashing | Maximum Alternating Sum of Squares | [LC](https://leetcode.com/problems/maximum-alternating-sum-of-squares/submissions/1828667010/)| [View Doc](https://docs.google.com/document/d/1KZIA7CjXiadQyHBPaP8Bt_L4BZxjMPiVmmnjQLZ7L6I/edit?tab=t.0) | - |
 
 
