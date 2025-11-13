@@ -1,4 +1,4 @@
-package CP;
+package CP.CodeForces_Probs;
 
 
 // link: https://codeforces.com/contest/2155/problem/C

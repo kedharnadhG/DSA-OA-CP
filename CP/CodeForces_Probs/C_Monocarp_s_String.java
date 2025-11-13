@@ -1,4 +1,4 @@
-package CP;
+package CP.CodeForces_Probs;
 
 import java.io.BufferedReader;
 import java.io.IOException;
