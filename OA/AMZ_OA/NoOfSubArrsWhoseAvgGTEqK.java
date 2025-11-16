@@ -7,7 +7,33 @@ import java.util.*;
 
 public class NoOfSubArrsWhoseAvgGTEqK {
 
+    // using Fenwick Tree (BIT)  to count how many prefix[i] ≤ current prefix[j+1]   ( avg >= k  )( real-version, inequality case (optimised) )
+    static class Fenwick {
+        int n;
+        long[] bit;
+
+        Fenwick(int n) {
+            this.n = n + 2;
+            bit = new long[this.n];
+        }
+
+        // mark prefix[j] as seen (so future j’s can count it)
+        void update(int i, long val) {
+            for (; i < n; i += i & -i)
+                bit[i] += val;
+        }
+
+        //how many previous prefix[i] ≤ current prefix[j]
+        long query(int i) {
+            long sum = 0;
+            for (; i > 0; i -= i & -i)
+                sum += bit[i];
+            return sum;
+        }
+    }
     
+    
+
     /*Brute force :- O(N^2) 
      
     */
@@ -29,6 +55,7 @@ public class NoOfSubArrsWhoseAvgGTEqK {
         return cnt;
     }
 
+    
     
     // Easy-Version :-  using prefix-sums
     /*( prefix[j] - prefix[i-1] ) / (j-i+1) >= k
@@ -79,18 +106,14 @@ public class NoOfSubArrsWhoseAvgGTEqK {
     }
 
     
-    /*Real Version
-         RHS >= LHS   ( avg >= k  )
-    
-         rhs : is fixed for each j
-    */
+
     /*PBDS (Policy-Based Data Structures) — C++ only
         -----------------------------------------------
         Gives order-statistics features:
             find_by_order(k)  → k-th smallest element
             order_of_key(x)   → count of elements < x
         All in O(log n) time.
-
+    
         Java equivalents:
         -----------------
         - No direct built-in structure.
@@ -99,11 +122,49 @@ public class NoOfSubArrsWhoseAvgGTEqK {
         2️⃣ Fenwick Tree or Segment Tree (O(log n) with compression)
         3️⃣ Google Guava’s TreeMultiset (frequency tracking)
         4️⃣ Custom Order-Statistic Tree (augment size per node)
-
+    
         For competitive programming:
         → Fenwick Tree is the go-to substitute for PBDS in Java.
     */
+    /*Real Version
+         RHS >= LHS   ( avg >= k  )
+    
+         rhs : is fixed for each j
+    */
+    public static long countSubarraysAvgGEK(int[] arr, int k) {
+        
+        // how many earlier prefix[i] ≤ current prefix[j+1]    ==> prefix[j+1]−K∗(j+1)≥prefix[i]−K∗i
 
+        int n = arr.length;
+        long[] prefix = new long[n + 1];
+
+        // Step 1: Build transformed prefix array   : ->   prefix[j] - k*j ; (Each prefix[i] now stores sum(arr[0..i-1]) - k*i) )
+        for (int i = 1; i <= n; i++)
+            prefix[i] = prefix[i - 1] + arr[i - 1] - k;
+
+        // Coordinate compression   ,(because prefix can be negative)
+        Set<Long> set = new TreeSet<>();
+        for (long x : prefix)
+            set.add(x);
+
+        // Fenwick Tree indexes must be positive and within bounds.
+        // So we “compress” (map) all possible prefix values into [1..N].
+        Map<Long, Integer> comp = new HashMap<>();
+        int id = 1;
+        for (long x : set) comp.put(x, id++);
+
+        Fenwick fenw = new Fenwick(comp.size());
+        long ans = 0;
+
+        for (int j = 0; j <= n; j++) {
+            int idx = comp.get(prefix[j]);
+            ans += fenw.query(idx);      // count how many prefix[i] ≤ prefix[j]
+            fenw.update(idx, 1);       // insert current prefix[j] into BIT (Binary Indexed Tree)
+        }
+
+        return ans;
+    }
+    
 
 
     public static void main(String[] args) {
@@ -129,7 +190,8 @@ public class NoOfSubArrsWhoseAvgGTEqK {
 
         // real-version
         System.out.println("------------------ Real Version ------------------");
-
+        long ans = countSubarraysAvgGEK(arr, k);
+        System.out.println("Number of subarrays with average >= " + k + " is: " + ans);
 
 
     }
@@ -140,8 +202,7 @@ public class NoOfSubArrsWhoseAvgGTEqK {
 
 
 
-/************************************************************************************
-    🧠 FINAL TAKEAWAY NOTES — Subarray Average == K (Prefix-Sum Based Formula)
+/*🧠 FINAL TAKEAWAY NOTES — Subarray Average == K (Prefix-Sum Based Formula)
 -------------------------------------------------------------------------------------
 
 🔹 Goal:
@@ -214,8 +275,7 @@ public class NoOfSubArrsWhoseAvgGTEqK {
 ************************************************************************************/
 
 
-/*************************************************************************************
-    🧩 Concept Notes — Understanding "pairs" & "subarrays" and the LHS–RHS order
+/*🧩 Concept Notes — Understanding "pairs" & "subarrays" and the LHS–RHS order
 --------------------------------------------------------------------------------------
 
 🔹 1. Why (i, j) pairs represent subarrays:
@@ -254,3 +314,80 @@ public class NoOfSubArrsWhoseAvgGTEqK {
         → Each (i, j) pair ↔ one subarray [i..j].
         → Insert LHS first, then check RHS — to include current j’s subarray too.
 *************************************************************************************/
+
+
+
+/*🧠 QUICK NOTES — Subarray Average == K  vs  Average ≥ K  + Fenwick Tree Summary
+-------------------------------------------------------------------------------------
+
+    🧩 WHY DO WE SUBTRACT 'K' WHILE BUILDING PREFIX?
+    -------------------------------------------------
+    Goal: count subarrays where avg(i, j) ≥ K.
+
+    Start:
+        (arr[i] + arr[i+1] + ... + arr[j]) / (j - i + 1) ≥ K
+    →   arr[i] + ... + arr[j] ≥ K * (j - i + 1)
+    →   (arr[i] - K) + (arr[i+1] - K) + ... + (arr[j] - K) ≥ 0
+
+    💡 So if we replace every element by (arr[i] - K),
+    the "average ≥ K" condition becomes "subarray sum ≥ 0".
+
+    Hence:
+        prefix[i] = prefix[i-1] + arr[i-1] - K
+    i.e. each prefix[i] stores (sum(arr[0..i-1]) - K*i).
+
+    This transformation simplifies the condition for checking with prefix sums / Fenwick Tree.
+
+    -------------------------------------------------------------------------------------
+    ⚖️ avg == K  →  Equality case
+    -------------------------------------------------
+    (prefix[j] - prefix[i-1]) / (j - i + 1) = K
+    → prefix[j] - prefix[i-1] = K*(j - i + 1)
+    → prefix[j] - K*j = prefix[i-1] - K*i + K
+
+    ✅ "+K" stays on the i-side
+    ✅ Use HashMap or PBDS to count equal (i, j) pairs
+
+    -------------------------------------------------------------------------------------
+    ⚖️ avg ≥ K  →  Inequality case
+    -------------------------------------------------
+    (prefix[j+1] - prefix[i]) / (j - i + 1) ≥ K
+    → prefix[j+1] - prefix[i] ≥ K*(j - i + 1)
+    → prefix[j+1] - K*(j+1) ≥ prefix[i] - K*i
+
+    ✅ "+K" cancels out (inequality, relative order only)
+    ✅ (j+1) appears because prefix[j+1] represents sum up to j
+    ✅ For each j, count how many prefix[i] ≤ prefix[j+1]
+
+    -------------------------------------------------------------------------------------
+    ⚙️ FENWICK TREE (BIT) — Summary
+    -------------------------------------------------
+    Purpose:
+        Efficiently maintain and query prefix sums / frequencies in O(log n).
+
+    Operations:
+        update(i, val) → add 'val' at index i
+        query(i)       → sum of range [1..i]
+
+    Used here for:
+        Counting how many prefix[i] ≤ current prefix[j+1]
+        (same as PBDS’s order_of_key() in C++)
+
+    Steps:
+        1️⃣ Compute transformed prefix[i] = sum(arr[0..i-1]) - K*i
+        2️⃣ Coordinate compress (prefix values can be negative)
+        3️⃣ For each j:
+            idx = compressed(prefix[j])
+            ans += fenwick.query(idx)  // count smaller or equal prefixes
+            fenwick.update(idx, +1)    // mark current prefix
+
+    ✅ Time:  O(n log n)
+    ✅ Space: O(n)
+    ✅ Key idea: converts "average ≥ K" into "prefix sum ≥ 0" counting problem.
+
+    -------------------------------------------------------------------------------------
+    TL;DR:
+    - Subtract K → turns avg ≥ K into sum ≥ 0.
+    - avg == K → equality check → "+K" matters → use PBDS/Map.
+    - avg ≥ K → inequality check → "+K" drops → use Fenwick Tree.
+************************************************************************************/

@@ -6,6 +6,7 @@
 | Session-Dt | Contest | Topic | Problem | Soln-Link |  Doc-Link | Notes-Link |
 |-------------|--------|----------|------| -----------| -----------| -----------|
 | 29-10-25 | LC-WC-473-Q2 | Greedy + Hashing | Maximum Alternating Sum of Squares | [LC](https://leetcode.com/problems/maximum-alternating-sum-of-squares/submissions/1828667010/)| [View Doc](https://docs.google.com/document/d/1KZIA7CjXiadQyHBPaP8Bt_L4BZxjMPiVmmnjQLZ7L6I/edit?tab=t.0) | - |
+| 29-10-25 | LC-WC-473-Q3 | Greedy + Hashing | Stable Subarrays With Equal Boundary and Interior Sum | [LC](https://leetcode.com/problems/stable-subarrays-with-equal-boundary-and-interior-sum/submissions/1831413456/)| [View Doc](https://docs.google.com/document/d/14VSupMyjmAMM-vyJUWyxauMSy1QZpSGMto7M6qrSJMY/edit?tab=t.0) | - |
 
 
 
@@ -27,7 +28,7 @@
 | Session-Dt | Company-OA | Topic | Problem | Soln-Link |  Doc-Link | Notes-Link | Remarks |
 |-------------|-------- |--------|----------|------| -----------| -----------| -----------|
 | 02-11-25 | MS-OA | Multi-DP/ knapsackDP | IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles_Given_ArrA&B | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/MS_OA/IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles.java) | [View Doc](https://docs.google.com/document/d/1rpZGrvIXXtzyGJmeFmTJ_BywmUDG4_VY27x9zCY48oU/edit?tab=t.0) | [View Notes](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/MS_OA/IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles.md) |- |
-| 11-11-25 | AMZ-OA | Hashing + Pref & Suff  + (sortedSet / fenwick/BIT) | NoOfSubArrsWhoseAvgGTEqK | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/AMZ_OA/NoOfSubArrsWhoseAvgGTEqK.java) | [view Doc](https://docs.google.com/document/d/1Rm6F4lrDZPCw114DLJPXg7igouXElWINVu8EXTZpQhs/edit?tab=t.0) | see at EOF | Real-Version using sortedSet is yet to be done |
+| 11-11-25 | AMZ-OA | Hashing + Pref & Suff  + (sortedSet / fenwick/BIT) | NoOfSubArrsWhoseAvgGTEqK | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/AMZ_OA/NoOfSubArrsWhoseAvgGTEqK.java) | [view Doc](https://docs.google.com/document/d/1Rm6F4lrDZPCw114DLJPXg7igouXElWINVu8EXTZpQhs/edit?tab=t.0) | see at EOF | Real-Version using sortedSet is yet to be studied deeply |
 
 
 
