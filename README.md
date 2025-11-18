@@ -29,6 +29,8 @@
 | Session-Dt | Company-OA | Topic | Problem | Soln-Link |  Doc-Link | Notes-Link | Remarks |
 |-------------|-------- |--------|----------|------| -----------| -----------| -----------|
 | 02-11-25 | MS-OA | Multi-DP/ knapsackDP | IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles_Given_ArrA&B | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/MS_OA/IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles.java) | [View Doc](https://docs.google.com/document/d/1rpZGrvIXXtzyGJmeFmTJ_BywmUDG4_VY27x9zCY48oU/edit?tab=t.0) | [View Notes](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/MS_OA/IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles.md) |- |
+| 05-11-25 | Rubik-OA | Maths + GCD + (Inclusion-Exclusion) concept | NoOfPairsOrTripletsWhoseGCDisEqY | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/Rubrik_OA/NoOfPairsOrTripletsWhoseGCDisEqY.java) | [view Doc](https://docs.google.com/document/d/1mBVDc9jQNt81d3uGpPXfY09FyZTDqUg9EzBRwOi9PZQ/edit?tab=t.0) | see at EOF | - |
+| 06-11-25 | Rubik-OA | Factors Calculation Optimization (NlogN) | computeFactorsSieveOptimized | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/Rubrik_OA/NoOfPairsOrTripletsWhoseGCDisEqY.java) | [view Doc](https://docs.google.com/document/d/1mBVDc9jQNt81d3uGpPXfY09FyZTDqUg9EzBRwOi9PZQ/edit?tab=t.0) | see at EOF | - |
 | 11-11-25 | AMZ-OA | Hashing + Pref & Suff  + (sortedSet / fenwick/BIT) | NoOfSubArrsWhoseAvgGTEqK | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/AMZ_OA/NoOfSubArrsWhoseAvgGTEqK.java) | [view Doc](https://docs.google.com/document/d/1Rm6F4lrDZPCw114DLJPXg7igouXElWINVu8EXTZpQhs/edit?tab=t.0) | see at EOF | Real-Version using sortedSet is yet to be studied deeply |
 
 
