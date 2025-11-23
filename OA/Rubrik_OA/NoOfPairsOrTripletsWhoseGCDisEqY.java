@@ -61,11 +61,12 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
         }
 
 
-        // step-2 : calculate mul[i] = no of pairs whose GCD is MULTIPLE of i
+        // step-2 : calculate mul[i] = no of pairs whose GCD is MULTIPLE of i ( divisible_by i)
+        // mul[2] = g[2] i.e no.of pairs whose GCD is 2 + g[4] i.e no.of pairs whose GCD is 4 + ...
         long[] mul = new long[MAX + 1];
         for (int i = 1; i <= MAX; i++) {
             if (u[i] >= 2) {
-                mul[i] = (u[i] * (u[i] - 1)) / 2; // nC2
+                mul[i] = (u[i] * (u[i] - 1)) / 2; // nC2     ; where u[i] = how many numbers divisible by i
             }
         }
 
@@ -81,6 +82,7 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
 
         // Step 4: output all non-zero gcd counts
         StringBuilder sb = new StringBuilder();
+        System.out.println("g[i] = no of pairs whose GCD is EXACTLY i");
         for (int i = 1; i <= MAX; i++) {
             if (g[i] > 0) {
                 sb.append("g[").append(i).append("] = ").append(g[i]).append("\n");
@@ -134,6 +136,16 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
     }
 
     
+    /*Harder-Version
+            Find the no.of SubSequences of size "k" in the array whose GCD == "y"
+            formula for it is : nCk
+    */
+    /*Real-Version 
+            Given an array of size-"N" - answer Q-queries of the form (k,g)
+                                       - does there exists a subset of size-"k" whose GCD == "g" ?
+    */
+
+
 
     public static void main(String[] args) {
         
@@ -142,13 +154,17 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
         int n = 5;
         int[] arr = { 5, 4, 2, 6, 8 };
         // now print for all the gcd values from 1 to max(arr)  (i.e y=1 to P(max(arr)))
-        System.out.println("---------- Easy-Version ---------- ");
+        System.out.println("---------- Easy-Version  ( No.Of Pairs Whose GCD is Y )---------- ");
         cntOfPairsWithGCDasY(arr, n);
 
 
         System.out.println("---------- Factors Optimised Version ---------- ");
         int[] arr2 = { 1, 12, 3, 4, 13, 12, 4, 1 };
         computeFactorsSieveOptimized(arr2, arr2.length);
+
+
+        System.out.println("---------- Harder-Version  ( No.Of subSequences of size k whose GCD is Y )---------- ");
+        
 
     }
 }
@@ -235,6 +251,9 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
 
 */
 
+/*FACTOR CALCULATION — OPTIMAL (notes)
+ 
+*/
 /*Factors-Calculation-Optimal (NlogN method) - Notes     ( instead of N*sqrt(N) )   ( NlogN < N*sqrt(N) )
     
         More Efficient -> (NlogN method to store factors of all numbers of the array in hashmap) 
@@ -255,7 +274,6 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
 
                     U[i] :- is nothing but which is storing the factors of i
 */
-
 /*FACTOR CALCULATION — OPTIMAL (N log N METHOD)
         ---------------------------------------------------------------------------
 
@@ -323,3 +341,12 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
         • Perfect for problems involving divisors, gcd tables, freq tables.
         ---------------------------------------------------------------------------
 */
+
+
+/*Find the number of triplets (i,j,k) in the array whose gcd == y 
+
+    -> Same Concept ->  (as no.of pairs whose gcd == y)
+            but here (nC3) instead of (nC2)   (as we have to find triplets) 
+                ( formula- nC3 = n*(n-1)*(n-2)/6 )    <== ( nC3 = n!/(3!(n-3)! )  ==> nC3 = n*(n-1)*(n-2)/3*2*1 ) )
+    mul[2] ⇒ g[2] + g[4] + g[6] + g[8] + ………. 
+ */
