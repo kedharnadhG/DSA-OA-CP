@@ -36,7 +36,8 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
     }
     */
    
-    static final int MAX = 1000000;
+    static final int MAX = 100000;
+    static final long MOD = 1000000007;
     
     /*Easy-version
         How to find the count of pairs (i,j) in the array whose GCD == y
@@ -146,6 +147,97 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
     */
 
 
+    // Fast exponentiation
+    static long modPow(long a, long b, long mod) {
+        long res = 1;
+        while (b > 0) {
+            if ((b & 1) == 1) res = (res * a) % mod;
+            a = (a * a) % mod;
+            b >>= 1;
+        }
+        return res;
+    }
+
+    // Factorials & Inverse Factorials
+    static long[] fact = new long[MAX + 1];
+    static long[] invFact = new long[MAX + 1];
+    
+    // Precompute factorials & inverse factorials
+    static void buildFactorials() {
+        fact[0] = 1;
+        for (int i = 1; i <= MAX; i++)
+            fact[i] = (fact[i - 1] * i) % MOD;
+
+        invFact[MAX] = modPow(fact[MAX], MOD - 2, MOD);
+
+        for (int i = MAX - 1; i >= 0; i--)
+            invFact[i] = (invFact[i + 1] * (i + 1)) % MOD;
+    }
+
+    // nCr mod M
+    static long nCr(int n, int r) {
+        if (r < 0 || r > n) return 0;
+        return fact[n] * invFact[r] % MOD * invFact[n - r] % MOD;
+    }
+
+    public static boolean isSubSequenceOfSizeKWhoseGCDisG(int[] arr, int k, int g) {
+        //does there exists a subset of size K in this array whose gcd == g ?
+
+        int n = arr.length;
+
+        // step-1: find max-value in arr
+        int max = 0;
+        for (int x : arr)
+            max = Math.max(max, x);
+
+        // step-2: precompute factors for all numbers 1...max
+        List<List<Integer>> fact = new ArrayList<>();
+        for (int i = 0; i <= max; i++) {
+            fact.add(new ArrayList<>());
+        }
+
+        for (int i = 1; i <= max; i++) {
+            for (int j = i; j <= max; j += i) {
+                fact.get(j).add(i); // i is a factor of j
+            }
+        }
+
+        // step-3 : freq[i] = how many numbers divisible by i
+        int[] freq = new int[max + 1];
+        for (int x : arr) {
+            for (int f : fact.get(x)) {
+                freq[f]++;
+            }
+        }
+
+        // step-4 : Compute Factorials
+        buildFactorials();
+
+        // step-5 : mul[i][k] = no.of k-sized subsets divisible by i
+        long[][] mul = new long[max + 1][6];
+        for(int dv=1; dv<=max; dv++) {
+            mul[dv][k] = nCr(freq[dv], k);
+        }
+
+        // Step 6: Inclusion–Exclusion to get gcd[i][k]
+        long[][] gcd = new long[max + 1][6];
+
+        for (int dv = max; dv >= 1; dv--) {
+            long t = mul[dv][k];
+
+            for (int j = dv * 2; j <= max; j += dv) {
+                t -= gcd[j][k];
+            }
+
+            gcd[dv][k] = t;
+        }
+
+        // Step 7: Return YES/NO based on > 0
+        return gcd[g][k] > 0;
+
+    }
+
+
 
     public static void main(String[] args) {
         
@@ -153,19 +245,27 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
 
         int n = 5;
         int[] arr = { 5, 4, 2, 6, 8 };
-        // now print for all the gcd values from 1 to max(arr)  (i.e y=1 to P(max(arr)))
-        System.out.println("---------- Easy-Version  ( No.Of Pairs Whose GCD is Y )---------- ");
-        cntOfPairsWithGCDasY(arr, n);
+        /*// now print for all the gcd values from 1 to max(arr)  (i.e y=1 to P(max(arr)))
+            System.out.println("---------- Easy-Version  ( No.Of Pairs Whose GCD is Y )---------- ");
+            cntOfPairsWithGCDasY(arr, n);
+        */
 
-
-        System.out.println("---------- Factors Optimised Version ---------- ");
+        /*     System.out.println("---------- Factors Optimised Version ---------- ");
         int[] arr2 = { 1, 12, 3, 4, 13, 12, 4, 1 };
         computeFactorsSieveOptimized(arr2, arr2.length);
-
+        */
 
         System.out.println("---------- Harder-Version  ( No.Of subSequences of size k whose GCD is Y )---------- ");
+        int[] arr3 = {3,6,12,5,13,11,22,5,18,52,49,34};
+        int Q = 10;  // no.of queries
+        int[][] queries = {{4,2}, {3,5}, {5,8}, {5,3}, {2,2}, {3,2}, {1,3}, {3,2}, {2,5}, {2,7}};   // {k,g}  -> subSequences of size k whose GCD == g
         
-
+         for(int[] q : queries) {
+            boolean ans = isSubSequenceOfSizeKWhoseGCDisG(arr3, q[0], q[1]);
+            System.out.println(
+                "Is there a SubSequence of size "+q[0]+" whose GCD is "+q[1]+" ? => " + (ans ? "YES" : "NO")
+            );
+        }
     }
 }
 
@@ -345,8 +445,252 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
 
 /*Find the number of triplets (i,j,k) in the array whose gcd == y 
 
-    -> Same Concept ->  (as no.of pairs whose gcd == y)
-            but here (nC3) instead of (nC2)   (as we have to find triplets) 
-                ( formula- nC3 = n*(n-1)*(n-2)/6 )    <== ( nC3 = n!/(3!(n-3)! )  ==> nC3 = n*(n-1)*(n-2)/3*2*1 ) )
-    mul[2] ⇒ g[2] + g[4] + g[6] + g[8] + ………. 
+
+/*------------------------------ FINAL- Overall NOTES-----------------------------------*/
+
+
+/*  ✨ MASTER END-TO-END GCD + nCr NOTES ✨
+        =====================================================================
+
+        This document summarizes ALL concepts used across:
+
+        ✔ Easy Version (count pairs whose GCD == y)  
+        ✔ Factor Sieve (N log N)  
+        ✔ Harder Version (count subsequences of size k)  
+        ✔ Real Version (Q queries: does subset of size k exist with GCD = g?)  
+        ✔ Inclusion–Exclusion  
+        ✔ nCr (modulo + exact)  
+        ✔ Modular inverse, modPow, factorial & inverse factorial  
+        ✔ Why distinct array is needed  
+
+        Keep this block at the EOF of your file for future revision.
+        =====================================================================
+
+        =====================================================================
+        1) EASY VERSION — COUNT PAIRS WHOSE GCD = y
+        =====================================================================
+        Goal:
+            For every y from 1..max(arr), compute:
+                g[y] = number of pairs (i,j) in arr where GCD = y.
+
+        Steps:
+        -----------------------------------------------------------
+        (1) Build u[i] = count of numbers divisible by i
+            For each num in arr:
+                for d up to sqrt(num):
+                    if d divides num:
+                        u[d]++
+                        if d != num/d:
+                            u[num/d]++
+
+        (2) mul[i] = number of PAIRS whose gcd is MULTIPLE of i
+                    = C(u[i], 2)
+
+        (3) Inclusion–Exclusion (reverse from max → 1)
+            mul[i] = g[i] + g[2i] + g[3i] + ...
+            So:
+                g[i] = mul[i] - (g[2i] + g[3i] + ...)
+
+        (4) Print all g[i] > 0.
+
+
+        =====================================================================
+        2) FACTOR SIEVE — O(N log N) PRECOMPUTATION
+        =====================================================================
+        Goal:
+            Precompute ALL factors for all numbers up to MAX.
+
+        Why?
+            √n factorization is slow for repeated queries.
+            Sieve builds:
+                factors[j] = all i where i divides j
+
+        Algorithm:
+            for i in 1..MAX:
+                for j = i; j <= MAX; j += i:
+                    factors[j].add(i)
+
+        Time:
+            MAX * (1 + 1/2 + 1/3 + ...) = MAX log MAX.
+
+        WHY DISTINCT ARRAY?
+        -------------------
+        After factor sieve:
+            factors[x] already known for all x.
+
+        If array = {12,12,12}:
+            Using distinct {12} avoids repeating work 3 times.
+            Saves time, avoids repeated freq updates, avoids overcount.
+
+
+        =====================================================================
+        3) REAL VERSION — SUBSET GCD QUERIES
+        =====================================================================
+        Query:
+            (k, g): Is there a subset of size k whose GCD = g?
+
+        Constraints:
+            1 <= k <= 5
+            array values <= 100000
+
+        Global idea:
+        -----------------------------------------------------------
+        1) freq[i] = how many numbers in arr divisible by i.
+
+        2) mul[i][k] = number of k-sized subsets whose all elements 
+                    are divisible by i
+                    = C(freq[i], k)
+
+        3) Inclusion–exclusion:
+            mul[i][k] = gcd[i][k] + gcd[2i][k] + gcd[3i][k] + ...
+        So:
+            gcd[i][k] = mul[i][k]
+                        - (gcd[2i][k] + gcd[3i][k] + ...)
+
+        4) Answer:
+            if gcd[g][k] > 0 → YES
+            else → NO
+
+        NOTE:
+            For YES/NO correctness, nCr MUST be exact if values can overflow.
+            (modulo can hide zeros).
+
+
+        =====================================================================
+        4) INCLUSION–EXCLUSION — WHY REVERSE ORDER?
+        =====================================================================
+        Because:
+            g[i] depends on g[2i], g[3i], ...
+        So we process i from MAX DOWN TO 1.
+
+        Reverse ensures that when computing g[i],
+        all g[multiples_of_i] are already known.
+
+
+        =====================================================================
+        5) nCk (COMBINATORICS) — FULL EXPLANATION
+        =====================================================================
+        We know:
+            C(n,k) = n! / (k! * (n-k)!)
+
+        Problem:
+            Division does NOT work under modulo arithmetic.
+
+        Solution:
+            Replace division with multiplication by modular inverses.
+
+            C(n,k) % M =
+                fact[n] 
+                * inverse(fact[k]) 
+                * inverse(fact[n-k])
+                % M
+
+
+        --------------------------
+        5.1) WHAT IS MODULAR INVERSE?
+        --------------------------
+        inverse(x) is a number y such that:
+            (x * y) % MOD = 1
+
+        Example (mod 7):
+            3 * 5 = 15 ≡ 1 (mod 7)
+        So inverse(3) = 5.
+
+
+        --------------------------------------------
+        5.2) HOW DO WE COMPUTE INVERSE(x) FAST?
+        --------------------------------------------
+        Using Fermat’s Little Theorem (MOD prime):
+
+            x^(MOD-1) ≡ 1 (mod MOD)
+        →  x^(MOD-2) ≡ inverse(x)
+
+        So:
+            inverse(x) = modPow(x, MOD - 2)
+
+        This is why modPow is used.
+
+
+        -----------------------------------------------------
+        5.3) WHY invFact[] ARRAY EXISTS (INVERSE FACTORIALS)
+        -----------------------------------------------------
+        We want:
+            inverse(k!)
+            inverse((n-k)!)
+
+        Using Fermat:
+            invFact[MAX] = inverse(fact[MAX])
+                        = fact[MAX]^(MOD-2)
+
+        To find invFact[i-1], observe:
+            n! = n * (n-1)!
+        This identity rearranged gives:
+            (n-1)! = n! / n
+
+        Now divide both sides by n!(n-1)! (algebraic manipulation to isolate inverses):
+            1 / (n-1)! = n / n!
+
+        Convert to modulo world where division becomes multiplication by inverse:
+            inverse((n-1)!) = n × inverse(n!)
+
+        So the modular identity becomes:
+            invFact[i-1] = (invFact[i] * i) % MOD
+
+        This is the key relation used to fill invFact[] in O(MAX) time by going backwards.
+
+
+        ------------------------------------------
+        5.4) FINAL nCr FORMULA (MOD VERSION)
+        ------------------------------------------
+        C(n,k) % MOD = fact[n] * invFact[k] % MOD * invFact[n-k] % MOD
+
+
+        ------------------------------------------
+        5.5) EXACT nCr (WITHOUT MOD)
+        ------------------------------------------
+        For k ≤ 5, safe & fast multiplicative formula:
+
+        C(n, k) =
+            (n * (n-1) * ... * (n-k+1)) / (k!)
+
+        Use BigInteger to avoid overflow:
+
+        E.g., C(n,3) = n*(n-1)*(n-2) / 6
+
+
+        =====================================================================
+        6) MINI EXAMPLE — C(5,2)
+        =====================================================================
+        fact: [1,1,2,6,24,120]
+        invFact[5] = inverse(120)
+        invFact[4] = invFact[5] * 5
+        invFact[3] = invFact[4] * 4
+        ...
+
+        C(5,2) = fact[5] * invFact[2] * invFact[3] = 10
+
+
+        =====================================================================
+        7) SUMMARY OF EVERYTHING IN 15 SECONDS
+        =====================================================================
+        • u[i] = how many array numbers divisible by i  
+        • mul[i] = pairs/subsets with gcd multiple of i  
+        • g[i] = exact-GCD count computed via inclusion–exclusion  
+        • Factor sieve computes all divisors for all numbers in O(N log N)  
+        • Use DISTINCT array to avoid repeated factor processing  
+        • nCk under modulo = fact[n] * invFact[k] * invFact[n-k] % MOD  
+        • inverse(x) = x^(MOD-2) via Fermat  
+        • invFact built backwards since inverse((n-1)!) = inverse(n!) * n  
+        • For YES/NO subset-GCD queries, exact nCr (BigInteger) is safest  
+        • Process GCD values from MAX → 1  
+
+        =====================================================================
+                                END OF NOTES
+        =====================================================================
+
+
+            -> Same Concept ->  (as no.of pairs whose gcd == y)
+                    but here (nC3) instead of (nC2)   (as we have to find triplets) 
+                        ( formula- nC3 = n*(n-1)*(n-2)/6 )    <== ( nC3 = n!/(3!(n-3)! )  ==> nC3 = n*(n-1)*(n-2)/3*2*1 ) )
+            mul[2] ⇒ g[2] + g[4] + g[6] + g[8] + ………. 
  */
