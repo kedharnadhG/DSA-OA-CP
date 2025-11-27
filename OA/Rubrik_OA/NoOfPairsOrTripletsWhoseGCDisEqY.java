@@ -694,3 +694,167 @@ public class NoOfPairsOrTripletsWhoseGCDisEqY {
                         ( formula- nC3 = n*(n-1)*(n-2)/6 )    <== ( nC3 = n!/(3!(n-3)! )  ==> nC3 = n*(n-1)*(n-2)/3*2*1 ) )
             mul[2] ⇒ g[2] + g[4] + g[6] + g[8] + ………. 
  */
+
+
+/* Using BigInteger (for exact nCr)
+        import java.io.*;
+        import java.util.*;
+        import java.math.BigInteger;
+
+        public class Main {
+
+            static final int MAX = 100000;
+
+            
+                // ====================================================================
+                //                 ⭐ nCr USING BIGINTEGER ⭐
+                // ====================================================================
+                // Since k ≤ 5 always, this multiplication loop is extremely fast.
+                // Also, BigInteger avoids overflow AND avoids modulo math.
+
+                // Formula used:
+                //     C(n, r) = n*(n-1)*...*(n-r+1) / r!
+
+                // We do:
+                //     numerator   = ∏ (n - r + i)
+                //     denominator = ∏ i
+                //     return numerator / denominator
+            
+            static BigInteger nCrBig(int n, int r) {
+                if (r < 0 || r > n) return BigInteger.ZERO;
+
+                r = Math.min(r, n - r);  // symmetry property: C(n, r) = C(n, n-r)
+
+                BigInteger num = BigInteger.ONE;
+                BigInteger den = BigInteger.ONE;
+
+                for (int i = 1; i <= r; i++) {
+                    num = num.multiply(BigInteger.valueOf(n - r + i));
+                    den = den.multiply(BigInteger.valueOf(i));
+                }
+                return num.divide(den); // exact division because nCr is integer
+            }
+
+            public static void main(String[] args) throws IOException {
+
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+                  
+                    // Input format:
+                    //     n
+                    //     a1 a2 a3 ... an
+                    //     q
+                    //     k1 g1
+                    //     k2 g2
+                    //     ...
+                
+                int n = Integer.parseInt(br.readLine());
+                StringTokenizer st = new StringTokenizer(br.readLine());
+
+                int q = Integer.parseInt(br.readLine());
+                int[][] queries = new int[q][2];
+
+                for (int i = 0; i < q; i++) {
+                    StringTokenizer st1 = new StringTokenizer(br.readLine());
+                    queries[i][0] = Integer.parseInt(st1.nextToken()); // k
+                    queries[i][1] = Integer.parseInt(st1.nextToken()); // g
+                }
+
+                 
+                    // ====================================================================
+                    //     STEP 1: PRECOMPUTE ALL FACTORS FOR 1..MAX USING SIEVE
+                    // ====================================================================
+                    // factors[x] = list of all divisors of x
+
+                    // Complexity: MAX * (1 + 1/2 + 1/3 + ... ) = MAX log MAX
+                
+                ArrayList<ArrayList<Integer>> factors = new ArrayList<>();
+                for (int i = 0; i <= MAX; i++) factors.add(new ArrayList<>());
+
+                for (int i = 1; i <= MAX; i++) {
+                    for (int j = i; j <= MAX; j += i) {
+                        factors.get(j).add(i);
+                    }
+                }
+
+                 
+                    // ====================================================================
+                    //     STEP 2: freq[i] = HOW MANY ARRAY ELEMENTS ARE DIVISIBLE BY i
+                    // ====================================================================
+                    // If an array element is 12, contribute to:
+                    //     freq[1], freq[2], freq[3], freq[4], freq[6], freq[12]
+                
+                int[] freq = new int[MAX + 1];
+
+                for (int i = 0; i < n; i++) {
+                    if (!st.hasMoreTokens()) st = new StringTokenizer(br.readLine());
+                    int val = Integer.parseInt(st.nextToken());
+
+                    for (int f : factors.get(val)) {
+                        freq[f]++;
+                    }
+                }
+
+                  
+                    // ====================================================================
+                    //     STEP 3: mul[i][k] = ALL SUBSETS OF SIZE k WHOSE ELEMENTS
+                    //                     ARE ALL DIVISIBLE BY i  
+                    //                     = C(freq[i], k)
+                    // ====================================================================
+                    // BigInteger makes this easy and overflow-free.
+                
+
+                BigInteger[][] mul = new BigInteger[MAX + 1][6];
+
+                for (int k = 1; k <= 5; k++) {
+                    for (int i = 1; i <= MAX; i++) {
+                        mul[i][k] = nCrBig(freq[i], k);
+                    }
+                }
+
+                 
+                    // ====================================================================
+                    //     STEP 4: INCLUSION–EXCLUSION: COMPUTE EXACT GCD COUNTS
+                    // ====================================================================
+                    // Logic:
+                    //     mul[i][k] = gcd[i][k] + gcd[2i][k] + gcd[3i][k] + ...
+
+                    // Therefore:
+                    //     gcd[i][k] = mul[i][k] - Σ gcd[multiples of i][k]
+                    
+                    // We MUST process from MAX → 1 to ensure multiples are ready.
+                
+                BigInteger[][] gcd = new BigInteger[MAX + 1][6];
+
+                for (int k = 1; k <= 5; k++) {
+                    for (int i = MAX; i >= 1; i--) {
+
+                        BigInteger t = mul[i][k];
+
+                        for (int j = i * 2; j <= MAX; j += i) {
+                            t = t.subtract(gcd[j][k]); // remove larger gcd contributions
+                        }
+
+                        gcd[i][k] = t;
+                    }
+                }
+
+                 
+                    // ====================================================================
+                    //     STEP 5: FOR EACH QUERY (k, g):
+                    //         IF gcd[g][k] > 0 → subset exists → YES
+                    //         ELSE → NO
+                    // ====================================================================
+                
+                for (int i = 0; i < q; i++) {
+                    int k = queries[i][0];
+                    int g = queries[i][1];
+
+                    System.out.println(
+                        gcd[g][k].compareTo(BigInteger.ZERO) > 0 ? "YES" : "NO"
+                    );
+                }
+            }
+        }
+
+*/

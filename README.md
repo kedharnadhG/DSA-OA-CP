@@ -19,6 +19,8 @@
 | 13-10-25 | AMZ-SDE Intern | BinSearch + 2Ptr + Greedy | K-th Smallest Subarray Sum | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/KthSmallestSubarraySum.java) | [View Doc](https://docs.google.com/document/d/1HJ9JFzTVNJM5U4eNeh7ofVxSyjfyETHH3Ryy-ak7T30/edit?tab=t.0) |
 | 03-11-25 | Salesforce Intv | Kadane's + Pref/Suff-Sum + Hashing | MaxSubarrayWithMOperations (easy-Ver) | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/MaxSubarrayWithMOperations.java) | [View Doc](https://docs.google.com/document/d/17u_U0mT-lI6j3vNgC8faZws-jPdgXIjK2L0oVgOAHUk/edit?tab=t.0) |
 | 04-11-25 | Salesforce Intv |Kadane's + Pref/Suff-Sum + Hashing | MaxSubarrayWithMOperations (Real-Ver) | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/MaxSubarrayWithMOperations.java) | [View Doc](https://docs.google.com/document/d/17u_U0mT-lI6j3vNgC8faZws-jPdgXIjK2L0oVgOAHUk/edit?tab=t.0) |
+| 12-11-25 | Uber Intv | Median Concept + Hashing + Pref/Suff-Sum Concept | CountMediansInPrefix | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/CountMediansInPrefix.java) | [View Doc](https://docs.google.com/document/d/12VQ0FbaCEuFn9S1YVWIVy8uhJTocZ5oxET3YpkwkW5w/edit?tab=t.0) |
+| 12-11-25 | Uber Intv | Median Concept + Hashing + Pref/Suff-Sum Concept | CountMediansInPrefixOptimized | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/CountMediansInPrefix.java) | [View Doc](https://docs.google.com/document/d/12VQ0FbaCEuFn9S1YVWIVy8uhJTocZ5oxET3YpkwkW5w/edit?tab=t.0) |
 
 
 
