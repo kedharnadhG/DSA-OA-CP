@@ -35,6 +35,7 @@
 | 06-11-25 | Rubik-OA | Factors Calculation Optimization (N. log MAX(arr)) | computeFactorsSieveOptimized | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/Rubrik_OA/NoOfPairsOrTripletsWhoseGCDisEqY.java) | [view Doc](https://docs.google.com/document/d/1mBVDc9jQNt81d3uGpPXfY09FyZTDqUg9EzBRwOi9PZQ/edit?tab=t.0) | see at EOF | - |
 | 07-11-25 | Rubik-OA | bringing all to gether | isSubSequenceOfSizeKWhoseGCDisG | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/Rubrik_OA/NoOfPairsOrTripletsWhoseGCDisEqY.java) | [view Doc](https://docs.google.com/document/d/1mBVDc9jQNt81d3uGpPXfY09FyZTDqUg9EzBRwOi9PZQ/edit?tab=t.0) | see at EOF | - |
 | 11-11-25 | AMZ-OA | Hashing + Pref & Suff  + (sortedSet / fenwick/BIT) | NoOfSubArrsWhoseAvgGTEqK | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/AMZ_OA/NoOfSubArrsWhoseAvgGTEqK.java) | [view Doc](https://docs.google.com/document/d/1Rm6F4lrDZPCw114DLJPXg7igouXElWINVu8EXTZpQhs/edit?tab=t.0) | see at EOF | Real-Version using sortedSet is yet to be studied deeply |
+| 17-11-25 | AMZ (sde-2) -OA | Bit-Manipulation + Hashing  | ProductRatingMaxAND | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/AMZ_OA/ProductRatingMaxAND.java) | [view Doc](https://docs.google.com/document/d/1ay6vidljVb-nilRgHoWLfHj4AMNeRiuFIaETGQKp-8k/edit?tab=t.0) | see at EOF | spend time on this to understand it |
 
 
 
