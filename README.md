@@ -21,6 +21,8 @@
 | 04-11-25 | Salesforce Intv |Kadane's + Pref/Suff-Sum + Hashing | MaxSubarrayWithMOperations (Real-Ver) | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/MaxSubarrayWithMOperations.java) | [View Doc](https://docs.google.com/document/d/17u_U0mT-lI6j3vNgC8faZws-jPdgXIjK2L0oVgOAHUk/edit?tab=t.0) |
 | 12-11-25 | Uber Intv | Median Concept + Hashing + Pref/Suff-Sum Concept | CountMediansInPrefix | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/CountMediansInPrefix.java) | [View Doc](https://docs.google.com/document/d/12VQ0FbaCEuFn9S1YVWIVy8uhJTocZ5oxET3YpkwkW5w/edit?tab=t.0) |
 | 12-11-25 | Uber Intv | Median Concept + Hashing + Pref/Suff-Sum Concept | CountMediansInPrefixOptimized | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/CountMediansInPrefix.java) | [View Doc](https://docs.google.com/document/d/12VQ0FbaCEuFn9S1YVWIVy8uhJTocZ5oxET3YpkwkW5w/edit?tab=t.0) |
+| 20-11-25 | Atlassian (sde-2) Intv | Multi Dimentional DP + knapsack-DP | countSpecialSubsets_EasyVer | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/SpecialSubsetsCntAndSumAndSum_Of_Prod.java) | [View Doc](https://docs.google.com/document/d/12mHkvzdWTgGMQyA-MCHhVj0_LabGHefjouM_1dxmARc/edit?tab=t.0) |
+| 21-11-25 | Atlassian (sde-2) Intv | Multi Dimentional DP + knapsack-DP | sumOfSpecialSubsets + sumOfProductsOfSpecialSubsets  | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/SpecialSubsetsCntAndSumAndSum_Of_Prod.java) | [View Doc](https://docs.google.com/document/d/12mHkvzdWTgGMQyA-MCHhVj0_LabGHefjouM_1dxmARc/edit?tab=t.0) |
 
 
 
