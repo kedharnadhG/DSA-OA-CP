@@ -1,5 +1,10 @@
 # DSA
 
+## Funda-Topics
+| Session-Dt | Topic | Problem | Soln-Link |  Doc-Link | Notes-Link |
+|-------------|----------|------| -----------| -----------| -----------|
+| 23-11-25 | Digit-DP ( foundational ) | Count of Num's whose sum==k for the given range [10000....99999] ( 5-digit-sum) | [View_code(Kumar-Sir's)](https://ideone.com/vvkKyT) | [View Doc](https://docs.google.com/document/d/1pOAp12ct_Rw4f3jJSLF0shfvCCrn0W45oR2dGyS1vPw/edit?tab=t.0) | - |
+
 
 ## LC-Upsolved
 
