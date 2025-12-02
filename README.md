@@ -3,7 +3,9 @@
 ## Funda-Topics
 | Session-Dt | Topic | Problem | Soln-Link |  Doc-Link | Notes-Link |
 |-------------|----------|------| -----------| -----------| -----------|
-| 23-11-25 | Digit-DP ( foundational ) | Count of Num's whose sum==k for the given range [10000....99999] ( 5-digit-sum) | [View_code(Kumar-Sir's)](https://ideone.com/vvkKyT) | [View Doc](https://docs.google.com/document/d/1pOAp12ct_Rw4f3jJSLF0shfvCCrn0W45oR2dGyS1vPw/edit?tab=t.0) | - |
+| 23-11-25 | Digit-DP ( foundational ) | Count of Num's whose sum==k for the given range [10000....99999] ( 5-digit-sum) | [View_code(Kumar-Sir's)](https://ideone.com/vvkKyT) | [View Doc](https://docs.google.com/document/d/1pOAp12ct_Rw4f3jJSLF0shfvCCrn0W45oR2dGyS1vPw/edit?tab=t.0) | Ex: how many 5 digit numbers exist whose digitsum is 8 |
+| 24-11-25 | Digit-DP ( foundational ) | Part-2 :-> F(L) == how many numbers are valid(sum==k) in the range [1….L] | Yet to be done | [View Doc](https://docs.google.com/document/d/1pOAp12ct_Rw4f3jJSLF0shfvCCrn0W45oR2dGyS1vPw/edit?tab=t.0) | - |
+| 27-11-25 | Digit-DP ( foundational ) | Part-2 :-> F(L) == how many numbers are valid(sum==k) in the range [1….L] | - Yet to be done | [View Doc](https://docs.google.com/document/d/1pOAp12ct_Rw4f3jJSLF0shfvCCrn0W45oR2dGyS1vPw/edit?tab=t.0) | - soln in the v-lecture|
 
 
 ## LC-Upsolved
@@ -28,6 +30,7 @@
 | 12-11-25 | Uber Intv | Median Concept + Hashing + Pref/Suff-Sum Concept | CountMediansInPrefixOptimized | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/CountMediansInPrefix.java) | [View Doc](https://docs.google.com/document/d/12VQ0FbaCEuFn9S1YVWIVy8uhJTocZ5oxET3YpkwkW5w/edit?tab=t.0) |
 | 20-11-25 | Atlassian (sde-2) Intv | Multi Dimentional DP + knapsack-DP | countSpecialSubsets_EasyVer | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/SpecialSubsetsCntAndSumAndSum_Of_Prod.java) | [View Doc](https://docs.google.com/document/d/12mHkvzdWTgGMQyA-MCHhVj0_LabGHefjouM_1dxmARc/edit?tab=t.0) |
 | 21-11-25 | Atlassian (sde-2) Intv | Multi Dimentional DP + knapsack-DP | sumOfSpecialSubsets + sumOfProductsOfSpecialSubsets  | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/SpecialSubsetsCntAndSumAndSum_Of_Prod.java) | [View Doc](https://docs.google.com/document/d/12mHkvzdWTgGMQyA-MCHhVj0_LabGHefjouM_1dxmARc/edit?tab=t.0) |
+| 25-11-25 | Google (sde-1) Intv | Digit DP | - Yet to be done | [View Doc](https://docs.google.com/document/d/1GFYsVXv-yXYXE3om3wLYnXA5WpJfNdITub47UBrDpY8/edit?tab=t.0) |
 
 
 
@@ -37,6 +40,7 @@
 
 | Session-Dt | Company-OA | Topic | Problem | Soln-Link |  Doc-Link | Notes-Link | Remarks |
 |-------------|-------- |--------|----------|------| -----------| -----------| -----------|
+| 02-12-25 | AMZ-OA | Greedy + Frequency Analysis + Derangement (Permutation) + (Pigeonhole Principle) problem. | MinSwapsFileAffinity | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/AMZ_OA/MinSwapsFileAffinity.java) | [View Doc](https://docs.google.com/document/d/1XEmAEtDE9pUt_kh14JSfvpoHjiz1cmzh6jFAR_6owoE/edit?tab=t.0) | at eof |- |
 | 02-11-25 | MS-OA | Multi-DP/ knapsackDP | IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles_Given_ArrA&B | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/MS_OA/IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles.java) | [View Doc](https://docs.google.com/document/d/1rpZGrvIXXtzyGJmeFmTJ_BywmUDG4_VY27x9zCY48oU/edit?tab=t.0) | [View Notes](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/MS_OA/IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles.md) |- |
 | 05-11-25 | Rubik-OA | Maths + GCD + (Inclusion-Exclusion) concept | NoOfPairsOrTripletsWhoseGCDisEqY | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/Rubrik_OA/NoOfPairsOrTripletsWhoseGCDisEqY.java) | [view Doc](https://docs.google.com/document/d/1mBVDc9jQNt81d3uGpPXfY09FyZTDqUg9EzBRwOi9PZQ/edit?tab=t.0) | see at EOF | - |
 | 06-11-25 | Rubik-OA | Factors Calculation Optimization (N. log MAX(arr)) | computeFactorsSieveOptimized | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/Rubrik_OA/NoOfPairsOrTripletsWhoseGCDisEqY.java) | [view Doc](https://docs.google.com/document/d/1mBVDc9jQNt81d3uGpPXfY09FyZTDqUg9EzBRwOi9PZQ/edit?tab=t.0) | see at EOF | - |
