@@ -31,6 +31,7 @@
 | 20-11-25 | Atlassian (sde-2) Intv | Multi Dimentional DP + knapsack-DP | countSpecialSubsets_EasyVer | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/SpecialSubsetsCntAndSumAndSum_Of_Prod.java) | [View Doc](https://docs.google.com/document/d/12mHkvzdWTgGMQyA-MCHhVj0_LabGHefjouM_1dxmARc/edit?tab=t.0) |
 | 21-11-25 | Atlassian (sde-2) Intv | Multi Dimentional DP + knapsack-DP | sumOfSpecialSubsets + sumOfProductsOfSpecialSubsets  | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/SpecialSubsetsCntAndSumAndSum_Of_Prod.java) | [View Doc](https://docs.google.com/document/d/12mHkvzdWTgGMQyA-MCHhVj0_LabGHefjouM_1dxmARc/edit?tab=t.0) |
 | 25-11-25 | Google (sde-1) Intv | Digit DP | - Yet to be done | [View Doc](https://docs.google.com/document/d/1GFYsVXv-yXYXE3om3wLYnXA5WpJfNdITub47UBrDpY8/edit?tab=t.0) |
+| 04-12-25 | Uber (sde-1) Intv | Grid DP (NoOfPathsTOReachEndWhoseSumIsEven  , https://ideone.com/Eo82zf) | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/NoOfPathsTOReachEndWhoseSumIsEven.java) | [View Doc](https://docs.google.com/document/d/1GAAg03auzh8R804_ZVo-vsKF-0UPbpaXgtTKKfGyBjU/edit?tab=t.0) |
 
 
 
