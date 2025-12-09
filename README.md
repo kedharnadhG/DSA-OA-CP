@@ -33,7 +33,7 @@
 | 25-11-25 | Google (sde-1) Intv | Digit DP | - Yet to be done | [View Doc](https://docs.google.com/document/d/1GFYsVXv-yXYXE3om3wLYnXA5WpJfNdITub47UBrDpY8/edit?tab=t.0) |
 | 04-12-25 | Uber (sde-1) Intv | Grid DP (NoOfPathsTOReachEndWhoseSumIsEven  , https://ideone.com/Eo82zf) | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/NoOfPathsTOReachEndWhoseSumIsEven.java) | [View Doc](https://docs.google.com/document/d/1GAAg03auzh8R804_ZVo-vsKF-0UPbpaXgtTKKfGyBjU/edit?tab=t.0) |
 
-
+| 06-12-25 | Uber (sde-1) Intv  (Fl-Up-1 )| Grid DP (countPathsWithSumK (fn) , ideone-to be done) | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/INTERVIEW_PROBS/NoOfPathsTOReachEndWhoseSumIsEven.java) | [View Doc](https://docs.google.com/document/d/1GAAg03auzh8R804_ZVo-vsKF-0UPbpaXgtTKKfGyBjU/edit?tab=t.0) |
 
 
 
@@ -41,7 +41,7 @@
 
 | Session-Dt | Company-OA | Topic | Problem | Soln-Link |  Doc-Link | Notes-Link | Remarks |
 |-------------|-------- |--------|----------|------| -----------| -----------| -----------|
-| 02-12-25 | AMZ-OA | Greedy + Frequency Analysis + Derangement (Permutation) + (Pigeonhole Principle) problem. | MinSwapsFileAffinity | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/AMZ_OA/MinSwapsFileAffinity.java) | [View Doc](https://docs.google.com/document/d/1XEmAEtDE9pUt_kh14JSfvpoHjiz1cmzh6jFAR_6owoE/edit?tab=t.0) | at eof |- |
+| 02-12-25 | AMZ-OA | Greedy + Frequency Analysis + Derangement (Permutation) + (Pigeonhole Principle) problem. | MinSwapsFileAffinity | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/AMZ_OA/MinSwapsFileAffinity.java) | [View Doc](https://docs.google.com/document/d/1XEmAEtDE9pUt_kh14JSfvpoHjiz1cmzh6jFAR_6owoE/edit?tab=t.0) | at eof |- (watch YT-lecture once, we can solve it using PQ-also) |
 | 02-11-25 | MS-OA | Multi-DP/ knapsackDP | IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles_Given_ArrA&B | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/MS_OA/IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles.java) | [View Doc](https://docs.google.com/document/d/1rpZGrvIXXtzyGJmeFmTJ_BywmUDG4_VY27x9zCY48oU/edit?tab=t.0) | [View Notes](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/MS_OA/IsSubSetSumPossibleByChosingKIndxsWithFirst_i_Eles.md) |- |
 | 05-11-25 | Rubik-OA | Maths + GCD + (Inclusion-Exclusion) concept | NoOfPairsOrTripletsWhoseGCDisEqY | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/Rubrik_OA/NoOfPairsOrTripletsWhoseGCDisEqY.java) | [view Doc](https://docs.google.com/document/d/1mBVDc9jQNt81d3uGpPXfY09FyZTDqUg9EzBRwOi9PZQ/edit?tab=t.0) | see at EOF | - |
 | 06-11-25 | Rubik-OA | Factors Calculation Optimization (N. log MAX(arr)) | computeFactorsSieveOptimized | [View Code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/OA/Rubrik_OA/NoOfPairsOrTripletsWhoseGCDisEqY.java) | [view Doc](https://docs.google.com/document/d/1mBVDc9jQNt81d3uGpPXfY09FyZTDqUg9EzBRwOi9PZQ/edit?tab=t.0) | see at EOF | - |
