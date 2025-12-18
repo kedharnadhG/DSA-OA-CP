@@ -55,6 +55,8 @@
 | Session-Dt | CF-link | Topic | Problem | Soln-Link |  Doc-Link | Notes-Link |
 |-------------|-------- |--------|----------|------| -----------| -----------|
 | 25-10-25 | [CF-Link](https://codeforces.com/contest/2154/problem/C2) | Hashing + Math | C_1_No_Cost_Too_Great_Easy_Version (easy, c2-pending) | [View Code](https://codeforces.com/contest/2154/submission/348613929) | [View Doc](https://docs.google.com/document/d/1UTmpXIQyxCYnl66evD4LB_lcYkVH5L_Gtxg90kWUFCI/edit?tab=t.0) | [View code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/CP/CodeForces_Probs/C_1_No_Cost_Too_Great_Easy_Version.java) |
+| 08-12-25 | [CF-Link](https://codeforces.com/problemset/problem/1665/C) | Tree + Greedy Assignment | C_Tree_Infection | [View Code](https://codeforces.com/contest/1665/submission/353934500) | [View Doc](https://docs.google.com/document/d/1kKYjThmQsv8npTGU8j-fhzx9VWe6U9OYF3sPDaI36mI/edit?tab=t.0) | [View code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/CP/CodeForces_Probs/C_Tree_Infection.java) |
+| 09-12-25 | [CF-Link](https://codeforces.com/problemset/problem/1665/C) | Tree + Greedy Assignment | C_Tree_Infection | [View Code](https://codeforces.com/contest/1665/submission/353934500) | [View Doc](https://docs.google.com/document/d/1kKYjThmQsv8npTGU8j-fhzx9VWe6U9OYF3sPDaI36mI/edit?tab=t.0) | [View code](https://github.com/kedharnadhG/DSA-OA-CP/blob/main/CP/CodeForces_Probs/C_Tree_InfectionOpt.java) |
 
 
 # YT_DSA_PROBLEMS_SOLUTIONS
