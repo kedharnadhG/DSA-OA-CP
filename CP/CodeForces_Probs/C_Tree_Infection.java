@@ -23,7 +23,7 @@ public class C_Tree_Infection {
             PriorityQueue<Integer> left = new PriorityQueue<>(Collections.reverseOrder());
             PriorityQueue<Integer> right = new PriorityQueue<>(Collections.reverseOrder());
 
-            // 🔥 IMPORTANT FIX:
+            // IMPORTANT FIX:
             // Add a dummy group of size 1 to represent the FIRST infection
             left.add(1);
 
@@ -68,10 +68,7 @@ public class C_Tree_Infection {
 
 
 
-
-
-
-/*  C. TREE INFECTION — PRIORITY QUEUE SIMULATION (CORRECTED)
+/*  C. TREE INFECTION — PRIORITY QUEUE SIMULATION 
     ===========================================================
 
     IMPORTANT CORRECTION

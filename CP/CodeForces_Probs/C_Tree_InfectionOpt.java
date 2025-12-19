@@ -80,8 +80,7 @@ public class C_Tree_InfectionOpt {
 
 
 
-/*
-        C. TREE INFECTION — OPTIMIZED SOLUTION (DETAILED NOTES)
+/*          C. TREE INFECTION — OPTIMIZED SOLUTION (DETAILED NOTES, watch lecture if needed)
         ===========================================================
 
         PROBLEM SUMMARY
